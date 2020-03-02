@@ -16,5 +16,10 @@ namespace Lab1_arch
         {
             InitializeComponent();
         }
+
+        public TextBox getTextBox()
+        {
+            return tbN.;
+        }
     }
 }
