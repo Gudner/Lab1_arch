@@ -67,7 +67,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbN);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Щукин и Деточенко 3-46";
             this.ResumeLayout(false);
             this.PerformLayout();
 
