@@ -15,6 +15,15 @@ namespace Lab1_arch
         public Form1()
         {
             InitializeComponent();
+
+        }
+
+        private void btR_Click(object sender, EventArgs e)
+        {
+            Rectangle myrec = new Rectangle();
+            int n = Convert.ToInt32(tbN.Text);
+            double integral = myrec.R(n);
+            tbR.Text = Convert.ToString(integral);
         }
     }
 }
