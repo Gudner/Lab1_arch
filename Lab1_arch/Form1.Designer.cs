@@ -30,7 +30,8 @@
         {
             this.tbN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btCalc = new System.Windows.Forms.Button();
+            this.btR = new System.Windows.Forms.Button();
+            this.btT = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbN
@@ -49,21 +50,31 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Введите N";
             // 
-            // btCalc
+            // btR
             // 
-            this.btCalc.Location = new System.Drawing.Point(68, 84);
-            this.btCalc.Name = "btCalc";
-            this.btCalc.Size = new System.Drawing.Size(119, 23);
-            this.btCalc.TabIndex = 2;
-            this.btCalc.Text = "Посчитать интеграл";
-            this.btCalc.UseVisualStyleBackColor = true;
+            this.btR.Location = new System.Drawing.Point(68, 84);
+            this.btR.Name = "btR";
+            this.btR.Size = new System.Drawing.Size(304, 23);
+            this.btR.TabIndex = 2;
+            this.btR.Text = "Посчитать интеграл методом прямоугольников";
+            this.btR.UseVisualStyleBackColor = true;
+            // 
+            // btT
+            // 
+            this.btT.Location = new System.Drawing.Point(68, 113);
+            this.btT.Name = "btT";
+            this.btT.Size = new System.Drawing.Size(304, 23);
+            this.btT.TabIndex = 3;
+            this.btT.Text = "Посчитать интеграл методом трапеций";
+            this.btT.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 172);
-            this.Controls.Add(this.btCalc);
+            this.ClientSize = new System.Drawing.Size(446, 265);
+            this.Controls.Add(this.btT);
+            this.Controls.Add(this.btR);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbN);
             this.Name = "Form1";
@@ -77,7 +88,8 @@
 
         private System.Windows.Forms.TextBox tbN;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btCalc;
+        private System.Windows.Forms.Button btR;
+        private System.Windows.Forms.Button btT;
     }
 }
 
