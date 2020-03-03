@@ -70,6 +70,7 @@
             this.btT.TabIndex = 3;
             this.btT.Text = "Посчитать интеграл методом трапеций";
             this.btT.UseVisualStyleBackColor = true;
+            this.btT.Click += new System.EventHandler(this.btT_Click);
             // 
             // tbR
             // 

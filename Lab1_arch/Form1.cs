@@ -25,5 +25,13 @@ namespace Lab1_arch
             double integral = myrec.R(n);
             tbR.Text = Convert.ToString(integral);
         }
+
+        private void btT_Click(object sender, EventArgs e)
+        {
+            Trapeze trapeze = new Trapeze();
+            int n = Convert.ToInt32(tbN.Text);
+            double integral = trapeze.T(n);
+            tbT.Text = Convert.ToString(integral);
+        }
     }
 }

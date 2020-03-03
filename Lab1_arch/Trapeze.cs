@@ -8,8 +8,8 @@ namespace Lab1_arch
 {
     class Trapeze
     {
-        private const double a = 1.0;
-        private const double b = 100000.0;
+        private const double a = 1;
+        private const double b = 100000;
 
         public double Func(double x)
         {
@@ -23,7 +23,7 @@ namespace Lab1_arch
             
             for (int i = 1; i < n - 1; i++)
             {
-                res += h * (Func(a + h * i));
+                res += h * (Func(a + (h * i)));
             }
 
             res += (h * ((Func(a) + Func(b)) / 2));
