@@ -33,5 +33,10 @@ namespace Lab1_arch
             double integral = trapeze.T(n);
             tbT.Text = Convert.ToString(integral);
         }
+
+        private void btnp_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Properties.Resources.aa;
+        }
     }
 }
