@@ -34,6 +34,9 @@
             this.btT = new System.Windows.Forms.Button();
             this.tbR = new System.Windows.Forms.TextBox();
             this.tbT = new System.Windows.Forms.TextBox();
+            this.btnp = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbN
@@ -86,11 +89,31 @@
             this.tbT.Size = new System.Drawing.Size(100, 20);
             this.tbT.TabIndex = 5;
             // 
+            // btnp
+            // 
+            this.btnp.Location = new System.Drawing.Point(358, 22);
+            this.btnp.Name = "btnp";
+            this.btnp.Size = new System.Drawing.Size(75, 23);
+            this.btnp.TabIndex = 6;
+            this.btnp.Text = "Пепук";
+            this.btnp.UseVisualStyleBackColor = true;
+            this.btnp.Click += new System.EventHandler(this.btnp_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(98, 127);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(249, 246);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 150);
+            this.ClientSize = new System.Drawing.Size(445, 376);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnp);
             this.Controls.Add(this.tbT);
             this.Controls.Add(this.tbR);
             this.Controls.Add(this.btT);
@@ -99,6 +122,7 @@
             this.Controls.Add(this.tbN);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,6 +135,8 @@
         public System.Windows.Forms.TextBox tbN;
         public System.Windows.Forms.TextBox tbR;
         public System.Windows.Forms.TextBox tbT;
+        private System.Windows.Forms.Button btnp;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
