@@ -36,6 +36,10 @@
             this.tbT = new System.Windows.Forms.TextBox();
             this.btnp = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbA = new System.Windows.Forms.TextBox();
+            this.tbB = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +111,47 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // tbA
+            // 
+            this.tbA.Location = new System.Drawing.Point(118, 25);
+            this.tbA.Name = "tbA";
+            this.tbA.Size = new System.Drawing.Size(100, 20);
+            this.tbA.TabIndex = 8;
+            // 
+            // tbB
+            // 
+            this.tbB.Location = new System.Drawing.Point(224, 25);
+            this.tbB.Name = "tbB";
+            this.tbB.Size = new System.Drawing.Size(100, 20);
+            this.tbB.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(115, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Введите A";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(221, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Введите B";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 376);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbB);
+            this.Controls.Add(this.tbA);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnp);
             this.Controls.Add(this.tbT);
@@ -137,6 +177,10 @@
         public System.Windows.Forms.TextBox tbT;
         private System.Windows.Forms.Button btnp;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox tbA;
+        private System.Windows.Forms.TextBox tbB;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

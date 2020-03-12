@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lab1_arch
 {
-    abstract class Figure
+    public abstract class Figure
     {
-        protected double Func(double x)
+        public double Function(double x)
         {
             return (10 * x) - Math.Log(14 * x);
         }
 
-        public abstract double Calculate(int n);
+        public abstract double Calculate(int n, double a, double b);
     }
 }
