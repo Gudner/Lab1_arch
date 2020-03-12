@@ -9,7 +9,7 @@ namespace Lab1_arch
     public class Trapeze : Figure
     {
 
-        public override double Calculate(int n, double a, double b)
+        public override double Calculate(int n, int a, int b)
         {
             double h = (b - a) / n;
             double res = 0;

@@ -21,8 +21,8 @@ namespace Lab1_arch
         {
             Rectangle myrec = new Rectangle();
             int n = Convert.ToInt32(tbN.Text);
-            double a = Convert.ToDouble(tbA.Text);
-            double b = Convert.ToDouble(tbB.Text);
+            int a = Convert.ToInt32(tbA.Text);
+            int b = Convert.ToInt32(tbB.Text);
             double integral = myrec.Calculate(n, a, b);
             tbR.Text = Convert.ToString(integral);
         }
@@ -31,8 +31,8 @@ namespace Lab1_arch
         {
             Trapeze trapeze = new Trapeze();
             int n = Convert.ToInt32(tbN.Text);
-            double a = Convert.ToDouble(tbA.Text);
-            double b = Convert.ToDouble(tbB.Text);
+            int a = Convert.ToInt32(tbA.Text);
+            int b = Convert.ToInt32(tbB.Text);
             double integral = trapeze.Calculate(n, a, b);
             tbT.Text = Convert.ToString(integral);
         }
