@@ -15,14 +15,13 @@ namespace Lab1_arch
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void btR_Click(object sender, EventArgs e)
         {
             Rectangle myrec = new Rectangle();
             int n = Convert.ToInt32(tbN.Text);
-            double integral = myrec.R(n);
+            double integral = myrec.Calculate(n);
             tbR.Text = Convert.ToString(integral);
         }
 
@@ -30,7 +29,7 @@ namespace Lab1_arch
         {
             Trapeze trapeze = new Trapeze();
             int n = Convert.ToInt32(tbN.Text);
-            double integral = trapeze.T(n);
+            double integral = trapeze.Calculate(n);
             tbT.Text = Convert.ToString(integral);
         }
 

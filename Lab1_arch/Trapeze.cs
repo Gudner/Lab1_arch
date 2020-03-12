@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab1_arch
 {
-    class Trapeze
+    class Trapeze : Figure
     {
         private const double a = 1;
         private const double b = 100000;
 
-        public double Func(double x)
-        {
-            return (10 * x) - Math.Log(14 * x);
-        }
-
-        public double T(int n)
+        public override double Calculate(int n)
         {
             double h = (b - a) / n;
             double res = 0;

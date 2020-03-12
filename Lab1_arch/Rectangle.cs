@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab1_arch
 {
-    public class Rectangle
+    class Rectangle : Figure
     {
         const double a = 1;
         const double b = 100000;
 
-        public double Func(double x)
-        {
-            return (10 * x) - Math.Log(14 * x);
-        }
-
-        public double R(int n)
+        public override double Calculate(int n)
         {
             double h = (b - a) / n;
             double res = 0;
