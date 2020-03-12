@@ -11,7 +11,7 @@ namespace Lab1_arch
 
         public override double Calculate(int n, int a, int b)
         {
-            double h = (b - a) / n;
+            double h = (double)((b - a)) / n;
             double res = 0;
             
             for (int i = 1; i < n - 1; i++)
