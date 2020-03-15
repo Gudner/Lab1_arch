@@ -16,7 +16,7 @@ namespace UnitTestRec
             double exp_res = 12219.0850405774;
             int n = 1000;
             Rectangle rec1 = new Rectangle();
-            double h = (b - a) / n;
+            double h = (double)(b - a) / n;
 
             //Act
             Func<double, double> x = y => rec1.Calculate(n, a, b);
@@ -35,7 +35,7 @@ namespace UnitTestRec
             double exp_res = 4991449.82644873;
             int n = 100000;
             Rectangle rec1 = new Rectangle();
-            double h = (b - a) / n;
+            double h = (double)(b - a) / n;
 
             //Act
             Func<double, double> x = y => rec1.Calculate(n, a, b);

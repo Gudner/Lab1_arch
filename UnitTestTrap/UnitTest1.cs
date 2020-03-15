@@ -16,7 +16,7 @@ namespace UnitTestTrap
             double exp_res = 12219.0850405774;
             int n = 10000;
             Trapeze trap1 = new Trapeze();
-            double h = (b - a) / n;
+            double h = (double)(b - a) / n;
 
             //Act
             Func<double, double> x = y => trap1.Calculate(n, a, b);
