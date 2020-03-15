@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Lab1_arch;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Lab1_arch;
+using System;
 
 namespace UnitTestTrap
 {
