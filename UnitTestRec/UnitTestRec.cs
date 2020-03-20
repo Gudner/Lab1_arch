@@ -5,10 +5,10 @@ using System;
 namespace UnitTestRec
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestRec
     {
         [TestMethod]
-        public void TestRec()
+        public void Integral_a1_b50_n1000()
         {
             //Arrange
             int a = 1;
@@ -27,7 +27,7 @@ namespace UnitTestRec
         }
 
         [TestMethod]
-        public void TestRec2()
+        public void Integral_a1_b1000_n100000()
         {
             //Arrange
             int a = 1;

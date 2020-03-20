@@ -5,10 +5,10 @@ using System;
 namespace UnitTestTrap
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestTrap
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Integral_a1_b50_n10000()
         {
             //Arrange
             int a = 1;
