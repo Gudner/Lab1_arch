@@ -2,7 +2,7 @@
 {
     public class Trapeze : Figure
     {
-
+       
         public override double Calculate(int n, int a, int b)
         {
             double h = (double)((b - a)) / n;

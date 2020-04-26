@@ -83,19 +83,19 @@
             // 
             this.tbR.Location = new System.Drawing.Point(334, 54);
             this.tbR.Name = "tbR";
-            this.tbR.Size = new System.Drawing.Size(100, 20);
+            this.tbR.Size = new System.Drawing.Size(275, 20);
             this.tbR.TabIndex = 4;
             // 
             // tbT
             // 
             this.tbT.Location = new System.Drawing.Point(334, 91);
             this.tbT.Name = "tbT";
-            this.tbT.Size = new System.Drawing.Size(100, 20);
+            this.tbT.Size = new System.Drawing.Size(275, 20);
             this.tbT.TabIndex = 5;
             // 
             // btnp
             // 
-            this.btnp.Location = new System.Drawing.Point(358, 22);
+            this.btnp.Location = new System.Drawing.Point(349, 23);
             this.btnp.Name = "btnp";
             this.btnp.Size = new System.Drawing.Size(75, 23);
             this.btnp.TabIndex = 6;
@@ -105,7 +105,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(98, 127);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 127);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(249, 246);
             this.pictureBox1.TabIndex = 7;
@@ -147,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 376);
+            this.ClientSize = new System.Drawing.Size(621, 376);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbB);
