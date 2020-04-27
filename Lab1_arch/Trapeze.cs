@@ -14,7 +14,7 @@ namespace Lab1_arch
                     double h = (double)((b - a)) / n;
                     double res = 0;
                     for (int i = 0; i < n; i++)
-                        res += 0.5 * (Function(a + h * i) + Function(a + h * (i + 1)));
+                        res += Function(a + h * (i + 0.5));
                     res *= h;
                     return res;
                 }
