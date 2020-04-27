@@ -10,5 +10,6 @@ namespace Lab1_arch
         }
 
         public abstract double Calculate(int n, int a, int b);
+        public abstract double PCalculate(int n, int a, int b);
     }
 }

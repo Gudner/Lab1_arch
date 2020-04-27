@@ -40,6 +40,12 @@
             this.tbB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btRP = new System.Windows.Forms.Button();
+            this.btTP = new System.Windows.Forms.Button();
+            this.tbRP = new System.Windows.Forms.TextBox();
+            this.tbTP = new System.Windows.Forms.TextBox();
+            this.tbTime = new System.Windows.Forms.TextBox();
+            this.tbTimeP = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +111,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 127);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 268);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(249, 246);
             this.pictureBox1.TabIndex = 7;
@@ -143,11 +149,65 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Введите B";
             // 
+            // btRP
+            // 
+            this.btRP.Location = new System.Drawing.Point(12, 129);
+            this.btRP.Name = "btRP";
+            this.btRP.Size = new System.Drawing.Size(304, 37);
+            this.btRP.TabIndex = 12;
+            this.btRP.Text = "Посчитать интеграл методом прямоугольников параллельно";
+            this.btRP.UseVisualStyleBackColor = true;
+            this.btRP.Click += new System.EventHandler(this.btRP_Click);
+            // 
+            // btTP
+            // 
+            this.btTP.Location = new System.Drawing.Point(12, 182);
+            this.btTP.Name = "btTP";
+            this.btTP.Size = new System.Drawing.Size(304, 37);
+            this.btTP.TabIndex = 13;
+            this.btTP.Text = "Посчитать интеграл методом трапеций параллельно";
+            this.btTP.UseVisualStyleBackColor = true;
+            this.btTP.Click += new System.EventHandler(this.btTP_Click);
+            // 
+            // tbRP
+            // 
+            this.tbRP.Location = new System.Drawing.Point(334, 138);
+            this.tbRP.Name = "tbRP";
+            this.tbRP.Size = new System.Drawing.Size(275, 20);
+            this.tbRP.TabIndex = 14;
+            // 
+            // tbTP
+            // 
+            this.tbTP.Location = new System.Drawing.Point(334, 191);
+            this.tbTP.Name = "tbTP";
+            this.tbTP.Size = new System.Drawing.Size(275, 20);
+            this.tbTP.TabIndex = 15;
+            // 
+            // tbTime
+            // 
+            this.tbTime.Location = new System.Drawing.Point(334, 268);
+            this.tbTime.Name = "tbTime";
+            this.tbTime.Size = new System.Drawing.Size(275, 20);
+            this.tbTime.TabIndex = 16;
+            // 
+            // tbTimeP
+            // 
+            this.tbTimeP.Location = new System.Drawing.Point(334, 315);
+            this.tbTimeP.Name = "tbTimeP";
+            this.tbTimeP.Size = new System.Drawing.Size(275, 20);
+            this.tbTimeP.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 376);
+            this.ClientSize = new System.Drawing.Size(621, 526);
+            this.Controls.Add(this.tbTimeP);
+            this.Controls.Add(this.tbTime);
+            this.Controls.Add(this.tbTP);
+            this.Controls.Add(this.tbRP);
+            this.Controls.Add(this.btTP);
+            this.Controls.Add(this.btRP);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbB);
@@ -181,6 +241,12 @@
         private System.Windows.Forms.TextBox tbB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btRP;
+        private System.Windows.Forms.Button btTP;
+        public System.Windows.Forms.TextBox tbRP;
+        public System.Windows.Forms.TextBox tbTP;
+        public System.Windows.Forms.TextBox tbTime;
+        public System.Windows.Forms.TextBox tbTimeP;
     }
 }
 
