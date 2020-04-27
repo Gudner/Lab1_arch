@@ -19,10 +19,12 @@ namespace UnitTestTrap
             double h = (double)(b - a) / n;
 
             //Act
-            Func<double, double> x = y => trap1.Calculate(n, a, b);
+            double actual = trap1.Calculate(n, a, b, (z) =>
+            {
+                return (10 * z) - Math.Log(14 * z);
+            });
 
             //Assert
-            double actual = x(n);
             Assert.AreEqual(exp_res, actual, 0.01);
         }
 
@@ -38,8 +40,10 @@ namespace UnitTestTrap
             Trapeze trap1 = new Trapeze();
 
             //Act
-            Func<double, double> x = y => trap1.Calculate(n, a, b);
-            x(n);
+            double act = trap1.Calculate(n, a, b, (z) =>
+            {
+                return (10 * z) - Math.Log(14 * z);
+            });
             //Assert
             string actual = trap1.ErrorInformation;
             Assert.AreEqual(exp_res, actual);
@@ -57,8 +61,10 @@ namespace UnitTestTrap
             Trapeze trap1 = new Trapeze();
 
             //Act
-            Func<double, double> x = y => trap1.Calculate(n, a, b);
-            x(n);
+            double act = trap1.Calculate(n, a, b, (z) =>
+            {
+                return (10 * z) - Math.Log(14 * z);
+            });
             //Assert
             string actual = trap1.ErrorInformation;
             Assert.AreEqual(exp_res, actual);

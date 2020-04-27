@@ -12,7 +12,7 @@ namespace Lab1_arch
 
         public double Result;
 
-        public override double Calculate(int n, int a, int b)
+        public override double Calculate(int n, int a, int b, Func<double, double> func)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace Lab1_arch
                     double h = (double)((b - a)) / n;
                     double res = 0;
                     for (int i = 0; i < n; i++)
-                        res += 0.5 * (Function(a + h * i) + Function(a + h * (i + 1)));
+                        res += 0.5 * (func(a + h * i) + func(a + h * (i + 1)));
                     res *= h;
                     return res;
                 }
@@ -38,10 +38,8 @@ namespace Lab1_arch
             return 0.0;
         }
 
-        public override double PCalculate(int n, int a, int b)
+        public override double PCalculate(int n, int a, int b, Func<double, double> func)
         {
-
-            double res = 0;
             try
             {
                 if ((a < b) && (n > 0))
@@ -52,10 +50,10 @@ namespace Lab1_arch
                     Parallel.For<double>(0, n, () => 0, (i, state, subres) =>
                     {
                         double tmp;
-                        tmp = h *( 0.5 * (Function(a + h * i) + Function(a + h * (i + 1))));
+                        tmp = h *( 0.5 * (func(a + h * i) + func(a + h * (i + 1))));
                         
-                        res += tmp;
-                        return res;
+                        subres += tmp;
+                        return subres;
 
                     },(x) => bag.Add(x));
 
@@ -71,10 +69,9 @@ namespace Lab1_arch
             catch (ArgumentException ex)
             { 
                 ErrorInformation = ($"{ex.Message}");
-                res = 0.0;
+                Result = 0.0;
             }
-            return res;
-
+            return Result;
         }
     }
 }

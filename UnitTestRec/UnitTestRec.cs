@@ -19,10 +19,12 @@ namespace UnitTestRec
             double h = (double)(b - a) / n;
 
             //Act
-            Func<double, double> x = y => rec1.Calculate(n, a, b);
+            double actual = rec1.Calculate(n, a, b, (z) =>
+            {
+                return (10 * z) - Math.Log(14 * z);
+            });
 
             //Assert
-            double actual = x(n);
             Assert.AreEqual(exp_res, actual, 0.01);
         }
 
@@ -38,10 +40,12 @@ namespace UnitTestRec
             double h = (double)(b - a) / n;
 
             //Act
-            Func<double, double> x = y => rec1.Calculate(n, a, b);
+            double actual = rec1.Calculate(n, a, b, (z) =>
+            {
+                return (10 * z) - Math.Log(14 * z);
+            });
 
             //Assert
-            double actual = x(n);
             Assert.AreEqual(exp_res, actual, 0.01);
         }
     }

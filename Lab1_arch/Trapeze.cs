@@ -8,7 +8,13 @@ namespace Lab1_arch
     public class Trapeze : Figure
     {
         public string ErrorInformation;
-        public override double Calculate(int n, int a, int b)
+        public double Result;
+
+        Func<double, double> func = (x) =>
+        {
+            return (10 * x) - Math.Log(14 * x);
+        };
+        public override double Calculate(int n, int a, int b, Func<double, double> func)
         {
             try
             {
@@ -17,7 +23,7 @@ namespace Lab1_arch
                     double h = (double)((b - a)) / n;
                     double res = 0;
                     for (int i = 0; i < n; i++)
-                        res += Function(a + h * (i + 0.5));
+                        res += func(a + h * (i + 0.5));
                     res *= h;
                     return res;
                 }
@@ -35,9 +41,8 @@ namespace Lab1_arch
 
         }
 
-        public override double PCalculate(int n, int a, int b)
+        public override double PCalculate(int n, int a, int b, Func<double, double> func)
         {
-            double res = 0;
             try
             {
                 if ((a < b) && (n > 0))
@@ -45,26 +50,30 @@ namespace Lab1_arch
                     double h = (double)((b - a)) / n;
                     var bag = new ConcurrentBag<double>();
 
-                    Parallel.For(0, n, i =>
+                    Parallel.For<double>(0, n, () => 0, (i, state, subres) =>
                     {
-                        res += Function(a + h * (i + 0.5));
-                        res *= h;
-                    });
-                    
+                        double tmp;
+                        tmp = h * func(a + h * (i + 0.5));
+                        subres += tmp;
+                        return subres;
+
+                    }, (x) => bag.Add(x));
+
+                    Result = bag.Sum();
+
                 }
                 else
                 {
                     throw new ArgumentException();
                 }
-                
+
             }
             catch (ArgumentException ex)
             {
                 ErrorInformation = ($"{ex.Message}");
-                res = 0.0;
+                Result = 0.0;
             }
-            return res;
-
+            return Result;
         }
     }
 }

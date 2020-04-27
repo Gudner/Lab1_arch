@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 
 namespace Lab1_arch
@@ -20,9 +21,17 @@ namespace Lab1_arch
             int b = Convert.ToInt32(tbB.Text);
             //CalculateFunc = myrec.Calculate;
             //double integral = CalculateFunc(n, a, b);
-            var tn = DateTime.Now;
-            double integral = myrec.Calculate(n, a, b);
-            var tk = DateTime.Now;
+            //var tn = DateTime.Now;
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            double integral = myrec.Calculate(n, a, b, (x) =>
+            {
+                return (10 * x) - Math.Log(14 * x);
+            });
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            //var tk = DateTime.Now;
             if (integral == 0.0)
             {
                 tbR.Text = $"{myrec.ErrorInformation}";
@@ -30,7 +39,7 @@ namespace Lab1_arch
             else
             {
                 tbR.Text = Convert.ToString(integral);
-                tbTime.Text = Convert.ToString("Время выполнения " + (tk - tn).TotalMilliseconds / 100);
+                tbTime.Text = Convert.ToString("Время выполнения " + elapsedTime);
             }
       
         }
@@ -43,9 +52,18 @@ namespace Lab1_arch
             int b = Convert.ToInt32(tbB.Text);
             //CalculateFunc = trapeze.Calculate;
             //double integral = CalculateFunc(n, a, b);
-            var tn = DateTime.Now;
-            double integral = trapeze.Calculate(n, a, b);
-            var tk = DateTime.Now;
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            //var tn = DateTime.Now;
+            double integral = trapeze.Calculate(n, a, b, (x) =>
+            {
+                return (10 * x) - Math.Log(14 * x);
+            });
+            //var tk = DateTime.Now;
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+
             if (integral == 0.0)
             {
                 tbT.Text = $"{trapeze.ErrorInformation}";
@@ -53,7 +71,7 @@ namespace Lab1_arch
             else
             {
                 tbT.Text = Convert.ToString(integral);
-                tbTime.Text = Convert.ToString("Время выполнения " + (tk - tn).TotalMilliseconds / 100);
+                tbTime.Text = Convert.ToString("Время выполнения " + elapsedTime);
             }            
 
         }
@@ -71,11 +89,19 @@ namespace Lab1_arch
             int b = Convert.ToInt32(tbB.Text);
             //CalculateFunc = myrec.Calculate;
             //double integral = CalculateFunc(n, a, b);
-            var tn = DateTime.Now;
-            myrec.PCalculate(n, a, b);
-            double integral = myrec.Result;
-            
-            var tk = DateTime.Now;
+            //var tn = DateTime.Now;
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            double integral = myrec.PCalculate(n, a, b, (x) =>
+            {
+                return (10 * x) - Math.Log(14 * x);
+            });
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            // double integral = myrec.Result;
+
+            //var tk = DateTime.Now;
             if (integral == 0.0)
             {
                 tbRP.Text = $"{myrec.ErrorInformation}";
@@ -83,7 +109,7 @@ namespace Lab1_arch
             else
             {
                 tbRP.Text = Convert.ToString(integral);
-                tbTimeP.Text = Convert.ToString("Время параллельного выполнения " + (tk - tn).TotalMilliseconds / 100);
+                tbTimeP.Text = Convert.ToString("Время параллельного выполнения " + elapsedTime);
             }
 
         }
@@ -96,9 +122,17 @@ namespace Lab1_arch
             int b = Convert.ToInt32(tbB.Text);
             //CalculateFunc = trapeze.Calculate;
             //double integral = CalculateFunc(n, a, b);
-            var tn = DateTime.Now;
-            double integral = trapeze.PCalculate(n, a, b);
-            var tk = DateTime.Now;
+            //var tn = DateTime.Now;
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            double integral = trapeze.PCalculate(n, a, b, (x) =>
+            {
+                return (10 * x) - Math.Log(14 * x);
+            });
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            //var tk = DateTime.Now;
             if (integral == 0.0)
             {
                 tbTP.Text = $"{trapeze.ErrorInformation}";
@@ -106,7 +140,7 @@ namespace Lab1_arch
             else
             {
                 tbTP.Text = Convert.ToString(integral);
-                tbTimeP.Text = Convert.ToString("Время параллельного выполнения " + (tk - tn).TotalMilliseconds / 100);
+                tbTimeP.Text = Convert.ToString("Время параллельного выполнения " + elapsedTime);
             }
         }
 
