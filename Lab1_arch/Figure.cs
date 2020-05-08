@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Lab1_arch
 {
@@ -9,7 +11,7 @@ namespace Lab1_arch
             return (10 * x) - Math.Log(14 * x);
         }
 
-        public abstract double Calculate(int n, int a, int b, Func<double, double> func);
-        public abstract double PCalculate(int n, int a, int b, Func<double, double> func);
+        public abstract Task<double> Calculate(int n, int a, int b, CancellationToken token, IProgress<int> progress, Func<double, double> func);
+        public abstract Task<double> PCalculate(int n, int a, int b, CancellationToken token, IProgress<int> progress, Func<double, double> func);
     }
 }

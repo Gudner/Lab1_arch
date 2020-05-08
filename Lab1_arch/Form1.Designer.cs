@@ -46,6 +46,8 @@
             this.tbTP = new System.Windows.Forms.TextBox();
             this.tbTime = new System.Windows.Forms.TextBox();
             this.tbTimeP = new System.Windows.Forms.TextBox();
+            this.btCancel = new System.Windows.Forms.Button();
+            this.pgb = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -197,11 +199,30 @@
             this.tbTimeP.Size = new System.Drawing.Size(275, 20);
             this.tbTimeP.TabIndex = 17;
             // 
+            // btCancel
+            // 
+            this.btCancel.Location = new System.Drawing.Point(440, 22);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(75, 23);
+            this.btCancel.TabIndex = 18;
+            this.btCancel.Text = "Отмена";
+            this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click_1);
+            // 
+            // pgb
+            // 
+            this.pgb.Location = new System.Drawing.Point(12, 225);
+            this.pgb.Name = "pgb";
+            this.pgb.Size = new System.Drawing.Size(304, 23);
+            this.pgb.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 526);
+            this.Controls.Add(this.pgb);
+            this.Controls.Add(this.btCancel);
             this.Controls.Add(this.tbTimeP);
             this.Controls.Add(this.tbTime);
             this.Controls.Add(this.tbTP);
@@ -247,6 +268,8 @@
         public System.Windows.Forms.TextBox tbTP;
         public System.Windows.Forms.TextBox tbTime;
         public System.Windows.Forms.TextBox tbTimeP;
+        private System.Windows.Forms.Button btCancel;
+        private System.Windows.Forms.ProgressBar pgb;
     }
 }
 
