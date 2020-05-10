@@ -23,10 +23,21 @@ namespace Lab1_arch
                 {
                     if ((a < b) && (n > 0))
                     {
+                        int count = 0;
                         double h = (double)((b - a)) / n;
                         double res = 0;
                         for (int i = 0; i < n; i++)
+                        {
+                            token.ThrowIfCancellationRequested();
+                            Thread.Sleep(1);
                             res += func(a + h * (i + 0.5));
+                            Interlocked.Increment(ref count);
+                            if ((i % 10 == 0) || (i == n - 1))
+                            {
+                                progress.Report(count * 100 / n);
+                            }
+                        }
+                            
                         res *= h;
                         return res;
                     }
@@ -52,14 +63,21 @@ namespace Lab1_arch
                 {
                     if ((a < b) && (n > 0))
                     {
+                        int count = 0;
                         double h = (double)((b - a)) / n;
                         var bag = new ConcurrentBag<double>();
 
-                        Parallel.For<double>(0, n, () => 0, (i, state, subres) =>
+                        Parallel.For<double>(0, n, new ParallelOptions() { CancellationToken = token }, () => 0, (i, state, subres) =>
                         {
+                            Thread.Sleep(3);
                             double tmp;
                             tmp = h * func(a + h * (i + 0.5));
                             subres += tmp;
+                            Interlocked.Increment(ref count);
+                            if ((count % 10 == 0) || (count == n - 1))
+                            {
+                                progress.Report(count * 100 / n);
+                            }
                             return subres;
 
                         }, (x) => bag.Add(x));

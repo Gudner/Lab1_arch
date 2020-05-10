@@ -10,7 +10,7 @@ namespace UnitTestTrap
     public class UnitTestTrap
     {
         [TestMethod]
-        public async void Integral_a1_b50_n10000()
+        public void Integral_a1_b50_n10000()
         {
             //Arrange
             int a = 1;
@@ -23,10 +23,10 @@ namespace UnitTestTrap
             double h = (double)(b - a) / n;
 
             //Act
-            double actual = await trap1.Calculate(n, a, b, token, progress, (z) =>
+            double actual =  trap1.Calculate(n, a, b, token, progress, (z) =>
             {
                 return (10 * z) - Math.Log(14 * z);
-            });
+            }).Result;
 
             //Assert
             Assert.AreEqual(exp_res, actual, 0.01);
@@ -34,7 +34,7 @@ namespace UnitTestTrap
 
         [TestMethod]
 
-        public async void Integral_aIsBiggerThanb_ReturnException()
+        public void Integral_aIsBiggerThanb_ReturnException()
         {
             //Arrange
             int a = 50;
@@ -46,10 +46,10 @@ namespace UnitTestTrap
             Trapeze trap1 = new Trapeze();
 
             //Act
-            double act = await trap1.Calculate(n, a, b, token, progress, (z) =>
+            double act = trap1.Calculate(n, a, b, token, progress, (z) =>
             {
                 return (10 * z) - Math.Log(14 * z);
-            });
+            }).Result;
             //Assert
             string actual = trap1.ErrorInformation;
             Assert.AreEqual(exp_res, actual);
@@ -57,7 +57,7 @@ namespace UnitTestTrap
 
         [TestMethod]
 
-        public async void Integral_nEqualsZero_ReturnException()
+        public void Integral_nEqualsZero_ReturnException()
         {
             //Arrange
             int a = 1;
@@ -69,10 +69,10 @@ namespace UnitTestTrap
             Trapeze trap1 = new Trapeze();
 
             //Act
-            double act = await trap1.Calculate(n, a, b, token, progress, (z) =>
+            double act = trap1.Calculate(n, a, b, token, progress, (z) =>
             {
                 return (10 * z) - Math.Log(14 * z);
-            });
+            }).Result;
             //Assert
             string actual = trap1.ErrorInformation;
             Assert.AreEqual(exp_res, actual);

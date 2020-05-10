@@ -73,6 +73,63 @@ namespace Lab1_arch
 
         }
 
+        private async void GetResultT()
+        {
+            Trapeze trapeze = new Trapeze();
+            int n = Convert.ToInt32(tbN.Text);
+            int a = Convert.ToInt32(tbA.Text);
+            int b = Convert.ToInt32(tbB.Text);
+            pgb.Value = 0;
+            bool answerReady = true;
+
+            Progress<int> progress = new Progress<int>();
+            progress.ProgressChanged += (sender, e) => { pgb.Value = e; };
+
+            cts = new CancellationTokenSource();
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            double integral = 0;
+
+            try
+            {
+                stopWatch.Start();
+                integral = await trapeze.Calculate(n, a, b, cts.Token, progress, (x) =>
+                {
+                    return (10 * x) - Math.Log(14 * x);
+                });
+                stopWatch.Stop();
+
+            }
+            catch (OperationCanceledException)
+            {
+                tbT.Text = "Отмена";
+                answerReady = false;
+            }
+            catch
+            {
+                tbT.Text = "Ошибка";
+                answerReady = false;
+            }
+
+            if (answerReady)
+            {
+                TimeSpan ts = stopWatch.Elapsed;
+                string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                if (integral == 0.0)
+                {
+                    tbT.Text = $"{trapeze.ErrorInformation}";
+                }
+                else
+                {
+                    tbT.Text = Convert.ToString(integral);
+                    tbTime.Text = Convert.ToString("Время выполнения " + elapsedTime);
+                }
+            }
+            btT.Enabled = true;
+            btCancel.Enabled = false;   
+
+        }
+
         private async void GetResultRP()
         {
             Rectangle myrec = new Rectangle();
@@ -122,10 +179,67 @@ namespace Lab1_arch
                 else
                 {
                     tbRP.Text = Convert.ToString(integral);
-                    tbTimeP.Text = Convert.ToString("Время выполнения " + elapsedTime);
+                    tbTimeP.Text = Convert.ToString("Время параллельного выполнения " + elapsedTime);
                 }
             }
             btRP.Enabled = true;
+            btCancel.Enabled = false;
+
+        }
+
+        private async void GetResultTP()
+        {
+            Trapeze trapeze = new Trapeze();
+            int n = Convert.ToInt32(tbN.Text);
+            int a = Convert.ToInt32(tbA.Text);
+            int b = Convert.ToInt32(tbB.Text);
+            pgb.Value = 0;
+            bool answerReady = true;
+
+            Progress<int> progress = new Progress<int>();
+            progress.ProgressChanged += (sender, e) => { pgb.Value = e; };
+
+            cts = new CancellationTokenSource();
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            double integral = 0;
+
+            try
+            {
+                stopWatch.Start();
+                integral = await trapeze.PCalculate(n, a, b, cts.Token, progress, (x) =>
+                {
+                    return (10 * x) - Math.Log(14 * x);
+                });
+                stopWatch.Stop();
+
+            }
+            catch (OperationCanceledException)
+            {
+                tbTP.Text = "Отмена";
+                answerReady = false;
+            }
+            catch
+            {
+                tbTP.Text = "Ошибка";
+                answerReady = false;
+            }
+
+            if (answerReady)
+            {
+                TimeSpan ts = stopWatch.Elapsed;
+                string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                if (integral == 0.0)
+                {
+                    tbTP.Text = $"{trapeze.ErrorInformation}";
+                }
+                else
+                {
+                    tbTP.Text = Convert.ToString(integral);
+                    tbTimeP.Text = Convert.ToString("Время параллельного выполнения " + elapsedTime);
+                }
+            }
+            btTP.Enabled = true;
             btCancel.Enabled = false;
 
         }
@@ -139,32 +253,9 @@ namespace Lab1_arch
 
         private void btT_Click(object sender, EventArgs e)
         {
-            //Trapeze trapeze = new Trapeze();
-            //int n = Convert.ToInt32(tbN.Text);
-            //int a = Convert.ToInt32(tbA.Text);
-            //int b = Convert.ToInt32(tbB.Text);
-
-            //Stopwatch stopWatch = new Stopwatch();
-            //stopWatch.Start();
-
-            //double integral = trapeze.Calculate(n, a, b, (x) =>
-            //{
-            //    return (10 * x) - Math.Log(14 * x);
-            //});
-
-            //stopWatch.Stop();
-            //TimeSpan ts = stopWatch.Elapsed;
-            //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
-
-            //if (integral == 0.0)
-            //{
-            //    tbT.Text = $"{trapeze.ErrorInformation}";
-            //}
-            //else
-            //{
-            //    tbT.Text = Convert.ToString(integral);
-            //    tbTime.Text = Convert.ToString("Время выполнения " + elapsedTime);
-            //}
+            btT.Enabled = false;
+            btCancel.Enabled = true;
+            GetResultT();
 
         }
 
@@ -183,30 +274,9 @@ namespace Lab1_arch
 
         private void btTP_Click(object sender, EventArgs e)
         {
-            //Trapeze trapeze = new Trapeze();
-            //int n = Convert.ToInt32(tbN.Text);
-            //int a = Convert.ToInt32(tbA.Text);
-            //int b = Convert.ToInt32(tbB.Text);
-
-            //Stopwatch stopWatch = new Stopwatch();
-            //stopWatch.Start();
-            //double integral = trapeze.PCalculate(n, a, b, (x) =>
-            //{
-            //    return (10 * x) - Math.Log(14 * x);
-            //});
-            //stopWatch.Stop();
-            //TimeSpan ts = stopWatch.Elapsed;
-            //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
-
-            //if (integral == 0.0)
-            //{
-            //    tbTP.Text = $"{trapeze.ErrorInformation}";
-            //}
-            //else
-            //{
-            //    tbTP.Text = Convert.ToString(integral);
-            //    tbTimeP.Text = Convert.ToString("Время параллельного выполнения " + elapsedTime);
-            //}
+            btTP.Enabled = false;
+            btCancel.Enabled = true;
+            GetResultTP();
         }
 
 

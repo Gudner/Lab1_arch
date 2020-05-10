@@ -10,7 +10,7 @@ namespace UnitTestRec
     public class UnitTestRec
     {
         [TestMethod]
-        public async void Integral_a1_b50_n1000()
+        public void Integral_a1_b50_n1000()
         {
             //Arrange
             int a = 1;
@@ -23,17 +23,17 @@ namespace UnitTestRec
             double h = (double)(b - a) / n;
 
             //Act
-            double actual = await rec1.Calculate(n, a, b, token, progress, (z) =>
+            double actual = rec1.Calculate(n, a, b, token, progress, (z) =>
             {
                 return (10 * z) - Math.Log(14 * z);
-            });
+            }).Result;
 
             //Assert
             Assert.AreEqual(exp_res, actual, 0.01);
         }
 
         [TestMethod]
-        public async void Integral_a1_b1000_n100000()
+        public void Integral_a1_b1000_n100000()
         {
             //Arrange
             int a = 1;
@@ -46,10 +46,10 @@ namespace UnitTestRec
             double h = (double)(b - a) / n;
 
             //Act
-            double actual = await rec1.Calculate(n, a, b, token, progress, (z) =>
+            double actual = rec1.Calculate(n, a, b, token, progress, (z) =>
             {
                 return (10 * z) - Math.Log(14 * z);
-            });
+            }).Result;
 
             //Assert
             Assert.AreEqual(exp_res, actual, 0.01);
