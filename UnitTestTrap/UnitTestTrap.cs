@@ -34,7 +34,7 @@ namespace UnitTestTrap
 
         [TestMethod]
 
-        public void Integral_aIsBiggerThanb_ReturnException()
+        public async Task Integral_aIsBiggerThanb_ReturnException()
         {
             //Arrange
             int a = 50;
@@ -46,10 +46,10 @@ namespace UnitTestTrap
             Trapeze trap1 = new Trapeze();
 
             //Act
-            double act = trap1.Calculate(n, a, b, token, progress, (z) =>
+            double act = await trap1.Calculate(n, a, b, token, progress, (z) =>
             {
                 return (10 * z) - Math.Log(14 * z);
-            }).Result;
+            });
             //Assert
             string actual = trap1.ErrorInformation;
             Assert.AreEqual(exp_res, actual);
