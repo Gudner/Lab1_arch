@@ -26,15 +26,14 @@ namespace Lab1_arch
                         double res = 0;
                         for (int i = 0; i < n; i++)
                         {
-                            token.ThrowIfCancellationRequested();
-                            Thread.Sleep(1);
+                            token.ThrowIfCancellationRequested();                            
                             res += 0.5 * (func(a + h * i) + func(a + h * (i + 1)));
                             Interlocked.Increment(ref count);
-                            if ((i%10 == 0) || (i == n-1))
-                            {                                
+                            if (i%(0.1 *n) == 0 || (i == n - 1))
+                            {
                                 progress.Report(count * 100 / n);
                             }
-                            
+
                         }
                             
                         res *= h;
@@ -69,12 +68,11 @@ namespace Lab1_arch
                         Parallel.For<double>(0, n, new ParallelOptions() { CancellationToken = token }, () => 0,  (i, state, subres) =>
                         {
                             
-                            Thread.Sleep(3);
                             double tmp;
                             tmp = h * (0.5 * (func(a + h * i) + func(a + h * (i + 1))));
                             subres += tmp;
                             Interlocked.Increment(ref count);
-                            if ((count % 10 == 0) || (count == n - 1))
+                            if (count % (0.1 * n) == 0 || (count == n - 1))
                             {
                                 progress.Report(count * 100 / n);
                             }
