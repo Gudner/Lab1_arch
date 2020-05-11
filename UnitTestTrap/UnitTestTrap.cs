@@ -10,7 +10,7 @@ namespace UnitTestTrap
     public class UnitTestTrap
     {
         [TestMethod]
-        public void Integral_a1_b50_n10000()
+        public async Task Integral_a1_b50_n10000()
         {
             //Arrange
             int a = 1;
@@ -23,10 +23,10 @@ namespace UnitTestTrap
             double h = (double)(b - a) / n;
 
             //Act
-            double actual =  trap1.Calculate(n, a, b, token, progress, (z) =>
+            double actual = await trap1.PCalculate(n, a, b, token, progress, (z) =>
             {
                 return (10 * z) - Math.Log(14 * z);
-            }).Result;
+            });
 
             //Assert
             Assert.AreEqual(exp_res, actual, 0.01);
